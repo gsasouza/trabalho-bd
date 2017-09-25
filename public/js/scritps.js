@@ -8,8 +8,10 @@ function generateTableBody(data, id){
 		}
 		bodyHtml += '</tr>';
 	});
-	bodyHtml += '</tbody>'
+	bodyHtml += '</tbody>';
 	$(id).append(bodyHtml);
+	$(id.replace('t', 'h')).show();
+
 }
 function generateTableHeader(data, id, cb){
 	let header = '<thead class="mdb-color darken-3"> <tr>';
@@ -36,3 +38,5 @@ $('.btn').click(function () {
 			generateTable(data, '#t'+opt);			
 		});
 })
+
+$("h3").hide();
