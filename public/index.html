@@ -58,7 +58,7 @@
               style="height: 0px;">
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta a carga-horaria dos gerentes da loja 1;</div>
-                <div> <strong> Query: </strong> "SELECT carga_horaria AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id) JOIN loja ON (gerente_id=id_gerente)
+                <div> <strong> Query: </strong> "SELECT carga_horaria FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id) JOIN loja ON (gerente_id=id_gerente)
 WHERE id_loja='L01';"</div>
                 <button id="b2" class="btn btn-primary">Realizar Consulta</button>
                 <h3 id="h2">Resultado: </h3>
