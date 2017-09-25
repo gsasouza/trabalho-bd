@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Website CSS style -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Website Font style -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+  <title>Projeto Banco de Daos</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row main">
+      <div class="main-login main-center">
+        <h1 class="text-center text-header">Realize suas consultas</h1>
+        <h4 class="text-center text-header"> Gabriel Santos Souza, João Victor Oliveira Cordeiro</h4>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                  class="collapsed text-center">
+                    Consulta 1
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                <div><strong>Descrição: </strong>Consulta o CPF dos Gerentes</div>
+                <div> <strong> Query: </strong> "SELECT pessoa_cpf AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id);"</div>
+                <button id="b1" class="btn btn-primary" >Realizar Consulta</button>
+                <table class="table table-bordered" id="t1"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                  class="collapsed text-center">
+                    Consulta 2
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                <div><strong>Descrição: </strong>Consulta a carga-horaria dos gerentes da loja 1;</div>
+                <div> <strong> Query: </strong> "SELECT carga_horaria AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id) JOIN loja ON (gerente_id=id_gerente)
+WHERE id_loja='L01';"</div>
+                <button id="b2" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t2"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                  class="collapsed text-center">
+                    Consulta 3
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                <div><strong>Descrição: </strong>Consulta o nome dos produtos do setor de Hortifruti ordenados pelo preço;</div>
+                <div> <strong> Query: </strong> "SELECT preco, nome_produto FROM produto JOIN setor ON setor_id = id_setor WHERE nome_setor = 'Hortifruti' ORDER BY preco;"</div>
+                <button id="b3" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t3"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                  class="collapsed text-center">
+                    Consulta 4
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                <div><strong>Descrição: </strong>Consulta os setores com mais de 5 produtos cadastrados;</div>
+                <div> <strong> Query: </strong> "SELECT nome_setor, count() AS quantidade_produtos FROM setor JOIN produto ON (setor_id = id_setor) GROUP BY nome_setor HAVING count() > 5;"</div>
+                <button id="b4" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t4"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFive">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+                  class="collapsed text-center">
+                    Consulta 5
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                <div><strong>Descrição: </strong>Consulta as cidades das pessoas que tem o cpf começando com 8 e terminando com 5;</div>
+                <div> <strong> Query: </strong> "SELECT DISTINCT cidade FROM pessoa JOIN endereco on endereco_cep = cep WHERE cpf LIKE '8%5';"</div>
+                <button id="b5" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t5"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSix">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
+                  class="collapsed text-center">
+                    Consulta 6
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                Descrição da consulta 6<br>
+                <button id="b6" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t6"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"
+                  class="collapsed text-center">
+                    Consulta 7
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                Descrição da consulta 7<br>
+                <button id="b7" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t7"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingEight">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight"
+                  class="collapsed text-center">
+                    Consulta 8
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                Descrição da consulta 8<br>
+                <button id="b8" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t8"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingNive">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNive" aria-expanded="false" aria-controls="collapseNive"
+                  class="collapsed text-center">
+                    Consulta 9
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseNive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNive" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                Descrição da consulta 9<br>
+                <button id="b9" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t9"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTen">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen"
+                  class="collapsed text-center">
+                    Consulta 10
+                  </a>
+              </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen" aria-expanded="false"
+              style="height: 0px;">
+              <div class="panel-body text-center">
+                Descrição da consulta 10<br>
+                <button id="b10" class="btn btn-primary">Realizar Consulta</button>
+                <table class="table table-bordered" id="t10"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scritps.js"></script>
+</body>
+
+</html>
