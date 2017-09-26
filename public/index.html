@@ -39,7 +39,7 @@
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta o CPF dos Gerentes</div>
                 <div> <strong> Query: </strong> "SELECT pessoa_cpf AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id);"</div>
-                <button id="b1" class="btn btn-primary" >Realizar Consulta</button>
+                <button id="b1" class="btn btn-info" >Realizar Consulta</button>
                 <h3 id="h1">Resultado: </h3>
                 <table class="table table-bordered" id="t1"></table>
               </div>
@@ -60,7 +60,7 @@
                 <div><strong>Descrição: </strong>Consulta a carga-horaria dos gerentes da loja 1;</div>
                 <div> <strong> Query: </strong> "SELECT carga_horaria FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id) JOIN loja ON (gerente_id=id_gerente)
 WHERE id_loja='L01';"</div>
-                <button id="b2" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b2" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h2">Resultado: </h3>
                 <table class="table table-bordered" id="t2"></table>
               </div>
@@ -80,7 +80,7 @@ WHERE id_loja='L01';"</div>
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta o nome dos produtos do setor de Hortifruti ordenados pelo preço;</div>
                 <div> <strong> Query: </strong> "SELECT preco, nome_produto FROM produto JOIN setor ON setor_id = id_setor WHERE nome_setor = 'Hortifruti' ORDER BY preco;"</div>
-                <button id="b3" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b3" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h3">Resultado: </h3>
                 <table class="table table-bordered" id="t3"></table>
               </div>
@@ -100,7 +100,7 @@ WHERE id_loja='L01';"</div>
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta os setores com mais de 5 produtos cadastrados;</div>
                 <div> <strong> Query: </strong> "SELECT nome_setor, count() AS quantidade_produtos FROM setor JOIN produto ON (setor_id = id_setor) GROUP BY nome_setor HAVING count() > 5;"</div>
-                <button id="b4" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b4" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h4">Resultado: </h3>
                 <table class="table table-bordered" id="t4"></table>
               </div>
@@ -120,7 +120,7 @@ WHERE id_loja='L01';"</div>
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta as cidades das pessoas que tem o cpf começando com 8 e terminando com 5;</div>
                 <div> <strong> Query: </strong> "SELECT DISTINCT cidade FROM pessoa JOIN endereco on endereco_cep = cep WHERE cpf LIKE '8%5';"</div>
-                <button id="b5" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b5" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h5">Resultado: </h3>
                 <table class="table table-bordered" id="t5"></table>
               </div>
@@ -140,7 +140,7 @@ WHERE id_loja='L01';"</div>
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta o nome, a carga de trabalho e o numero dos guichês dos Caixas ordenados pelo nome</div>
                 <div> <strong> Query: </strong> "SELECT nome_pessoa, numero_guiche, carga_horaria FROM caixa NATURAL JOIN funcionario NATURAL JOIN pessoa ORDER BY (nome_pessoa);"</div>
-                <button id="b6" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b6" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h6">Resultado: </h3>
                 <table class="table table-bordered" id="t6"></table>
               </div>
@@ -158,8 +158,10 @@ WHERE id_loja='L01';"</div>
             <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="false"
               style="height: 0px;">
               <div class="panel-body text-center">
-                Descrição da consulta 7<br>
-                <button id="b7" class="btn btn-primary">Realizar Consulta</button>
+                <div><strong>Descrição: </strong>Consulta o nome, CPF e saldo do cliente que fez as compras 01 e 02</div>
+                <div> <strong> Query: </strong> "SELECT nome_pessoa, cpf, saldo_pagamento FROM Cliente JOIN pessoa ON (pessoa_cpf = cpf)
+	WHERE id_client IN (SELECT cliente_id FROM Vendo_produto_cliente_caixa WHERE codigo_venda IN (01,02))"</div>
+                <button id="b7" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h7">Resultado: </h3>
                 <table class="table table-bordered" id="t7"></table>
               </div>
@@ -178,7 +180,7 @@ WHERE id_loja='L01';"</div>
               style="height: 0px;">
               <div class="panel-body text-center">
                 Descrição da consulta 8<br>
-                <button id="b8" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b8" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h8">Resultado: </h3>
                 <table class="table table-bordered" id="t8"></table>
               </div>
@@ -197,7 +199,7 @@ WHERE id_loja='L01';"</div>
               style="height: 0px;">
               <div class="panel-body text-center">
                 Descrição da consulta 9<br>
-                <button id="b9" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b9" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h9">Resultado: </h3>
                 <table class="table table-bordered" id="t9"></table>
               </div>
@@ -216,7 +218,7 @@ WHERE id_loja='L01';"</div>
               style="height: 0px;">
               <div class="panel-body text-center">
                 Descrição da consulta 10<br>
-                <button id="b10" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b10" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h10">Resultado: </h3>
                 <table class="table table-bordered" id="t10"></table>
               </div>
@@ -235,7 +237,7 @@ WHERE id_loja='L01';"</div>
               style="height: 0px;">
               <div class="panel-body text-center">
                 <div><input class="input-lg form-control" type=text id=customQuery name=custom></input></div>
-                <button id="b11" class="btn btn-primary">Realizar Consulta</button>
+                <button id="b11" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h11">Resultado: </h3>
                 <table class="table table-bordered" id="t11"></table>
               </div>

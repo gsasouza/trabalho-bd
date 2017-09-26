@@ -32,7 +32,8 @@ const queries = {
   5: "SELECT DISTINCT cidade FROM pessoa JOIN endereco on endereco_cep = cep WHERE cpf" +
       " LIKE '8%5';",
   6: "SELECT nome_pessoa, numero_guiche, carga_horaria FROM caixa NATURAL JOIN funcion" +
-      "ario NATURAL JOIN pessoa ORDER BY (nome_pessoa);"
+      "ario NATURAL JOIN pessoa ORDER BY (nome_pessoa);",
+  7: "SELECT nome_pessoa, cpf, saldo_pagamento FROM Cliente JOIN pessoa ON (pessoa_cpf = cpf) WHERE id_client IN (SELECT cliente_id FROM Vendo_produto_cliente_caixa WHERE codigo_venda IN (01,02))"
 
 }
 app.use(express.static('public'));
