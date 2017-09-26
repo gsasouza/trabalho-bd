@@ -4,8 +4,7 @@ const pg = require('pg');
 const port = process.env.PORT || 3000;
 
 const config = {
-  connectionString: 'postgres://qdvdfhva:AjPAENHlCP2l3wNZvdP7VavrO8WfTRA4@stampy.db.elephantsql.com:5' +
-      '432/qdvdfhva',
+  connectionString: 'postgres://qdvdfhva:AjPAENHlCP2l3wNZvdP7VavrO8WfTRA4@stampy.db.elephantsql.com:5432/qdvdfhva',
   max: 10,
   idleTimeoutMillies: 3000
 }
@@ -39,14 +38,13 @@ const queries = {
 app.use(express.static('public'));
 
 app.get('/find', (req, res) => {
-  const query = queries[req.query.opt];
-  console.log(query);
-  executeQuery(query)
-    .then((result)=> res.status(200).send(result))
-    .catch((err)=> {
-      console.log(err);
-      res.status(400).send(err); 
-    })
+  let query = queries[req.query.opt];
+  if(req.query.opt == 11) query = req.query.query;
+  if(query !== null) 
+    return executeQuery(query)
+      .then((result)=> res.status(200).send(result))
+      .catch((err)=> res.status(400).send(err));
+  return res.status(400).send('Query Inválida');
 })
 
 app.listen(port, () => console.log('Listening'));

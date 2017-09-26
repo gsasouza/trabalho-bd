@@ -32,11 +32,15 @@ function generateTable(data, id){
 $('.btn').click(function () {
 		const id = $(this).attr("id");
 		$(this).text('Realizando Consulta...');
+		$('#'+id.replace('b', 't')).remove('thead');
+		$('#'+id.replace('b', 't')).remove('tbody');
 		const opt = $(this).attr("id").slice(1);
-		$.get('find', { opt }).done((data) => {
-			$(this).text('Realizar Consulta');
-			generateTable(data, '#t'+opt);			
-		});
+		let query = null;
+		if(opt == 11) query = $('#customQuery').val();
+		$.get('find', { opt, query })
+			.done((data)=> generateTable(data, '#t'+opt))
+			.fail(()=> alert('Query Inválida'))
+			.always($(this).text('Realizar Consulta'));
 })
 
 $("h3").hide();
