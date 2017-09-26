@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const config = {
   connectionString: 'postgres://qdvdfhva:AjPAENHlCP2l3wNZvdP7VavrO8WfTRA4@stampy.db.elephantsql.com:5432/qdvdfhva',
   max: 10,
-  idleTimeoutMillies: 3000
+  idleTimeoutMillies: 30000
 }
 
 function executeQuery(query) {
@@ -16,7 +16,6 @@ function executeQuery(query) {
       client.query(query, (err, result) => {
         done();
         if (err) return reject(err);
-        client.end();
         resolve (result.rows);
       })
     })
