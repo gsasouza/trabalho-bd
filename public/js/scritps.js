@@ -24,6 +24,7 @@ function generateTableHeader(data, id, cb){
 }
 
 function generateTable(data, id){
+	if (data.length === 0) return alert('Nenhum resultado obtido na consulta');
 	const header = Object.keys(data[0]);
 	generateTableHeader(header, id, ()=> generateTableBody(data, id));	
 	
@@ -39,9 +40,14 @@ $('.btn').click(function () {
 		let query = null;
 		if(opt == 11) query = $('#customQuery').val();
 		$.get('find', { opt, query })
-			.done((data)=> generateTable(data, '#t'+opt))
-			.fail(()=> alert('Query Inválida'))
-			.always($(this).text('Realizar Consulta'));
+			.done((data)=> {
+				$(this).text('Realizar Consulta');
+				return generateTable(data, '#t'+opt)}
+			)
+			.fail(()=> {
+				$(this).text('Realizar Consulta');
+				alert('Query Inválida');
+			})
 })
 
 $("h3").hide();
