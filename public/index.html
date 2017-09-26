@@ -180,7 +180,7 @@ WHERE id_loja='L01';"</div>
               style="height: 0px;">
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta os Produtos que foram vendidos para pessoas que moram na Rua A</div>
-                <div> <strong> Query: </strong> "SELECT DISTINCT produto_id FROM Vendo_produto_cliente_caixa WHERE cliente_id IN (SELECT id_client FROM Cliente NATURAL JOIN Pessoa WHERE endereco_rua = 'Rua A');"</div>
+                <div> <strong> Query: </strong> "SELECT DISTINCT nome_produto FROM Vendo_produto_cliente_caixa JOIN Produto ON (produto_id = id_produto) WHERE cliente_id IN (SELECT id_client FROM Cliente NATURAL JOIN Pessoa WHERE endereco_rua = 'Rua A');"</div>
                 <button id="b8" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h8">Resultado: </h3>
                 <table class="table table-bordered" id="t8"></table>
@@ -201,7 +201,7 @@ WHERE id_loja='L01';"</div>
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta o Cliente que  ainda não realizou nenhuma compra</div>
                 <div> <strong> Query: </strong> "SELECT nome_pessoa, id_client FROM Cliente JOIN Pessoa ON(pessoa_cpf = cpf) WHERE
-	NOT EXITS (SELECT * FROM Vendo_produto_cliente_caixa WHERE id_client = cliente_id);"</div>
+	NOT EXISTS (SELECT * FROM Vendo_produto_cliente_caixa WHERE id_client = cliente_id)"</div>
                 <button id="b9" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h9">Resultado: </h3>
                 <table class="table table-bordered" id="t9"></table>
