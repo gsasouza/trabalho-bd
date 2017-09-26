@@ -32,8 +32,9 @@ function generateTable(data, id){
 $('.btn').click(function () {
 		const id = $(this).attr("id");
 		$(this).text('Realizando Consulta...');
-		$('#'+id.replace('b', 't')).remove('thead');
-		$('#'+id.replace('b', 't')).remove('tbody');
+		$('h3').hide();
+		$('thead').remove();
+		$('tbody').remove();
 		const opt = $(this).attr("id").slice(1);
 		let query = null;
 		if(opt == 11) query = $('#customQuery').val();
