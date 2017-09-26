@@ -179,7 +179,8 @@ WHERE id_loja='L01';"</div>
             <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight" aria-expanded="false"
               style="height: 0px;">
               <div class="panel-body text-center">
-                Descrição da consulta 8<br>
+                <div><strong>Descrição: </strong>Consulta os Produtos que foram vendidos para pessoas que moram na Rua A</div>
+                <div> <strong> Query: </strong> "SELECT DISTINCT produto_id FROM Vendo_produto_cliente_caixa WHERE cliente_id IN (SELECT id_client FROM Cliente NATURAL JOIN Pessoa WHERE endereco_rua = 'Rua A');"</div>
                 <button id="b8" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h8">Resultado: </h3>
                 <table class="table table-bordered" id="t8"></table>
