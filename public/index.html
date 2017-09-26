@@ -199,7 +199,9 @@ WHERE id_loja='L01';"</div>
             <div id="collapseNive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNive" aria-expanded="false"
               style="height: 0px;">
               <div class="panel-body text-center">
-                Descrição da consulta 9<br>
+                <div><strong>Descrição: </strong>Consulta o Cliente que  ainda não realizou nenhuma compra</div>
+                <div> <strong> Query: </strong> "SELECT nome_pessoa, id_client FROM Cliente JOIN Pessoa ON(pessoa_cpf = cpf) WHERE
+	NOT EXITS (SELECT * FROM Vendo_produto_cliente_caixa WHERE id_client = cliente_id);"</div>
                 <button id="b9" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h9">Resultado: </h3>
                 <table class="table table-bordered" id="t9"></table>
@@ -218,7 +220,8 @@ WHERE id_loja='L01';"</div>
             <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen" aria-expanded="false"
               style="height: 0px;">
               <div class="panel-body text-center">
-                Descrição da consulta 10<br>
+                <div><strong>Descrição: </strong>Consulta a rua, cep e numero dos endereços onde a cidade é Aracaju</div>
+                <div> <strong> Query: </strong> "SELECT rua, cep, numero FROM endereco WHERE (cidade = 'Aracaju');"</div>
                 <button id="b10" class="btn btn-info">Realizar Consulta</button>
                 <h3 id="h10">Resultado: </h3>
                 <table class="table table-bordered" id="t10"></table>

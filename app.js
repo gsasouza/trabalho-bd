@@ -34,8 +34,9 @@ const queries = {
   6: "SELECT nome_pessoa, numero_guiche, carga_horaria FROM caixa NATURAL JOIN funcion" +
       "ario NATURAL JOIN pessoa ORDER BY (nome_pessoa);",
   7: "SELECT nome_pessoa, cpf, saldo_pagamento FROM Cliente JOIN pessoa ON (pessoa_cpf = cpf) WHERE id_client IN (SELECT cliente_id FROM Vendo_produto_cliente_caixa WHERE codigo_venda IN (01,02))",
-  8: "SELECT DISTINCT produto_id FROM Vendo_produto_cliente_caixa WHERE cliente_id IN (SELECT id_client FROM Cliente NATURAL JOIN Pessoa WHERE endereco_rua = 'Rua A')"
-
+  8: "SELECT DISTINCT produto_id FROM Vendo_produto_cliente_caixa WHERE cliente_id IN (SELECT id_client FROM Cliente NATURAL JOIN Pessoa WHERE endereco_rua = 'Rua A')",
+  9: "SELECT nome_pessoa, id_client FROM Cliente JOIN Pessoa ON(pessoa_cpf = cpf) WHERE	NOT EXITS (SELECT * FROM Vendo_produto_cliente_caixa WHERE id_client = cliente_id)",
+  10: "SELECT rua, cep, numero FROM endereco WHERE (cidade = 'Aracaju')"
 }
 app.use(express.static('public'));
 
