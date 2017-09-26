@@ -23,7 +23,7 @@
     <div class="row main">
       <div class="main-login main-center">
         <h1 class="text-center text-header">Realize suas consultas</h1>
-        <h4 class="text-center text-header"> Gabriel Santos Souza, João Victor Oliveira Cordeiro</h4>
+        <h4 class="text-center text-header"> Gabriel Santos Souza, João Vitor Oliveira Cordeiro</h4>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -38,7 +38,7 @@
               style="height: 0px;">
               <div class="panel-body text-center">
                 <div><strong>Descrição: </strong>Consulta o CPF dos Gerentes</div>
-                <div> <strong> Query: </strong> "SELECT pessoa_cpf AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id);"</div>
+                <div> <strong> Query: </strong> "SELECT cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id);"</div>
                 <button id="b1" class="btn btn-info" >Realizar Consulta</button>
                 <h3 id="h1">Resultado: </h3>
                 <table class="table table-bordered" id="t1"></table>

@@ -23,8 +23,7 @@ function executeQuery(query) {
   })
 }
 const queries = {
-  1: "SELECT pessoa_cpf AS cpf FROM (funcionario JOIN gerente ON id_funcionario=funcio" +
-      "nario_id);",
+  1: "SELECT cpf FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id);",
   2: "SELECT carga_horaria FROM (funcionario JOIN gerente ON id_funcionario=funcionario_id) JOIN loja ON (gerente_id=id_gerente) WHERE id_loja='L01';",
   3: "SELECT preco, nome_produto FROM produto JOIN setor ON setor_id = id_setor WHERE " +
       "nome_setor = 'Hortifruti' ORDER BY preco;",
